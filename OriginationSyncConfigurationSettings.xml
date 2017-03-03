@@ -1,0 +1,275 @@
+<ConfigurationSettings>
+  <Abacus>
+	<SystemUser value="148" />
+    <InfraApiBaseUrl value="http://cnvdarch01.infra.corp.dev:20004" />
+    <Title value="H2O Services" />
+    <XmlCommentFileName value="Abacus.Resource.Origination.Api.xml" />
+	<SystemUser value="148" />
+	<UserIdClaims value="h2o_userid,loportal_userid,neon_userid,colaemployee_userid" />
+	<Swagger>
+		<Domain value="originationsvc" />	
+		<ClientId value="PvIKDTcwavVbEUazqTpB82zVnWca" />
+		<ClientSecret value="irXhyGttNWSbFobCqc2lOw7syMwa" />
+	</Swagger>
+	
+    <ApiAccessToken value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxNDgiLCJhdGlkIjoiNSIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6MjAwMDIiLCJhdWQiOiJPcmlnaW5hdGlvbkFwaSIsImV4cCI6MTc2NzIyNTU5OSwibmJmIjoxNDQ3MTg5NjAzfQ.0vlY6NvRQ85k5wDNIAgUlvIta4nDUfHjzBD1dHm7ycI" />
+    <WindowsServiceAccessToken value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxNDgiLCJhdGlkIjoiMyIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6MjAwMDEiLCJhdWQiOiJPcmlnaW5hdGlvbldpbmRvd3NTZXJ2aWNlIiwiZXhwIjoxNzY3MjI1NTk5LCJuYmYiOjE0NDcxODk2MDN9.hrM7l8PPXoa6rNtzrZNOzQRYW1iRsR4l-0i7rctuvRg" />
+    <ScheduledTaskAccessToken value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIxNDgiLCJhdGlkIjoiNCIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6MjAwMDEiLCJhdWQiOiJPcmlnaW5hdGlvblNjaGVkdWxlZFRhc2siLCJleHAiOjE3NjcyMjU1OTksIm5iZiI6MTQ0NzE4OTYwM30.9KtMPXQ1eVkcwmuiXSlO2DIqCbbo5uoXQQV9M-zliNw" />
+    <CurrencyFormat value="0.00" />
+    <RateFormat value="0.000" />
+
+    <PerformanceMonitoring>
+      <Enabled value="0" />
+      <CustomParameterPrefix value="Abacus/Origination/" />
+    </PerformanceMonitoring>
+
+    <Log>
+      <SystemMessageLogQueue value="abacus.systemmessagelog" />
+      <UserActivityQueue value="abacus.useractivitylog"/>
+      <LogMessage value = "log/message"/>
+      <LogLevels>  <!--1 debug, 2 info, 3  warning, 4 Error, 5 fatal -->
+        <Default value="1"/>
+        <ClientHandler value="1"/>
+      </LogLevels>
+      <LogMode value="2"/> 		<!-- 1 for queue based logging, 2 for File log, 3 for dignostic log on debugger -->
+	  <ActivityMode>
+        <Default value="1"/>
+      </ActivityMode>	
+      <LogExternalFile value="c:\logs\ServiceLog.txt"/>
+    </Log>
+
+    <Cache>
+      <Enabled value="0" />
+      <DefaultCacheSection value="NCache" />
+      <DefaultExpirationType value="Sliding" />
+      <DefaultCacheDurationInMinutes value="1" />
+      <DefaultSerializationFormat value="Native" />
+      <DefaultKeyPrefix value="Origination" />
+      <MemoryCache>
+        <Name value="OriginationMemoryCache" />
+        <Type value="Memory" />
+      </MemoryCache>
+      <NCache>
+        <Name value="Abacus.Origination" />
+        <Type value="NCache" />
+      </NCache>
+      <Redis>
+        <Name value="Abacus.Origination" />
+        <Type value="Redis" />
+        <Configuration value = "pub-redis-18516.us-east-1-4.3.ec2.garantiadata.com:18516,password=Caliber2016!" />
+      </Redis>
+    </Cache>
+
+    <Broker>
+      <!-- Employee Confirmation Email Settings -->
+      <EmployeeConfirmationEmailSubject value="Caliber Home Loans - Orion User activation" />
+      <EmployeeConfirmationLifeSpanInDays value="7" />
+    </Broker>
+
+    <OrionPortal>
+      <EmployeeConfirmationLandingPage value="http://10.2.115.181:30001/account/manage/activateuser/" />
+      <BaseURL value="http://10.2.115.181:30001/" />
+    </OrionPortal>
+
+    <Tracking>
+      <MruEntryLogRequestQueue value="abacus.trackingsucker.mruentrylogrequest" />
+    </Tracking>
+
+    <Product>
+      <ProductFinder>
+		<LogPerformanceData value="false" />
+        <Mindbox>
+          <!--  <DateFormat value="yyyy-MM-ddTHH:mm:ss.fff" /> -->
+          <DateFormat value="yyyy-MM-ddTHH:mm:ss.fff" />
+        </Mindbox>
+        <DefaultRequestedPricePercent value="100.00" />
+        <DefaultInterestOnlyOption value="NoIO" />
+        <DefaultBuydownOption value="NoBuydown" />
+        <DefaultPrepayOption value="NoPP" />
+        <DefaultGsePropertyType value="PlannedUnitDevelopment" />
+        <NilMaxRebate value="NIL" />
+        <DefaultPricingPolicy value="Original" />
+        <LockExtensionAdjustmentName value="lock extension" />
+        <NilPricePointAdjustmentName value="NIL" />
+        <MaxRebateExceptionDescription value="Maximum Rebate Exceeded" />
+        <MaxRebateExceptionCategory value="Maximum Rebate Exceeded" />
+        <MinimumCompensationAdjustorDescription value="Minimum Compensation adjustor" />
+        <MinimumCompensationAdjustorCategory value="Minimum Compensation adjustor" />
+        <MaximumCompensationAdjustorDescription value="Maximum Compensation adjustor" />
+        <MaximumCompensationAdjustorCategory value="Maximum Compensation adjustor" />
+        <NearMissCategory value="NearMiss" />
+        <FarMissCategory value="FarMiss" />
+        <IneligibleCategory value="Ineligible" />
+        <PriorToFundStage value="Prior To Fund" />
+        <InsurableMiDecision value="Insurable" />
+        <RequestedDealDescription value="REQUESTED" />
+        <PreferredDealCategory value="PREFERRED" />
+        <EligibleDealEligibility value="ELIGIBLE" />
+        <LiensPaidAmountType value="SubtotalSubjectPropertyLiensPaidByClosingBalance" />
+        <DebtsPaidAmountType value="SubtotalLiabilitiesPaidByClosingNotIncludingSubjectPropertyLiensBalance" />
+      </ProductFinder>
+    </Product>
+
+    <Dashboard>
+      <ExpiringInDays value="7" />
+      <ClosingInDays value="30" />
+      <LastFundedFrom value="30" />
+      <LastFundedTo value="1" />
+      <OldFundedFrom value="120" />
+      <OldFundedTo value="30" />
+    </Dashboard>
+    
+    <SmartGFE>
+		<LogPerformanceData value="true" />
+	</SmartGFE>
+
+    <Apis>
+      <BaseAddress value="http://localhost:30001"/>
+	  <EnableSwagger value="true" />
+      <Broker>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="broker" />
+      </Broker>
+      <Pricing>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="pricing" />
+      </Pricing>
+      <Pricing_External>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="pricing_external" />		
+      </Pricing_External>
+      <Master>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="master" />
+     </Master>
+      <Application>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="application" />
+      </Application>
+      <Calculation>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="calculation" />
+      </Calculation>
+      <Org>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="org" />
+      </Org>
+      <Document>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="document" />
+      </Document>
+      <Decision>
+        <!-- <BaseAddress value="http://localhost:30001" /> -->
+        <RelativeAddress value="decision" />
+      </Decision>		  
+    </Apis>
+
+    <AuthEndpoints>
+     <InitiateResetPasswordEndPoint value="auh/auth/InitiatePasswordReset" />
+     <GetByIds value="auth/auth/ids" />
+     <GetPrivileges value="auth/user/privileges" />
+     <GrantPrivileges value="auth/user/grantprivileges" />
+     <GrantPrivilege value="auth/user/grantprivilege" />
+     <RevokePrivilege value="auth/user/revokeprivilege" />
+     <RevokePrivileges value="auth/user/revokeprivileges" />
+     <MarkAsActive value="auth/user/markasactive" />
+     <MarkAsInActive value="auth/user/markasinactive" />
+     <IsValidLogin value="auth/user/isusernameavailable/{userName}/{userId?}/{directoryId?}" />
+     <Create value="auth/user/create" />
+   </AuthEndpoints>
+
+    <Tracking>
+      <MruEntryLogRequestEndPoint value="tracking/tracking/logmruentry" />
+    </Tracking>
+
+    <AbacusCache>
+      <Enabled value="false"/>
+      <CacheBaseUrl value="http://localhost:20001/"/>
+      <ClientId value="PrivilegeAdmin"/>
+    </AbacusCache>
+
+    <RuleService>
+      <CatalogUri value="http://localhost/InRuleCatalogService/Service.svc" />
+      <UserName value="admin" IsEncryptionRequired="true" />
+      <Password value="password" IsEncryptionRequired="true" />
+	  <DateFormat value="yyyy-MM-dd" />
+    </RuleService>
+
+    <Services>
+      <BaseAddress value="net.tcp://localhost" />
+      <Binding value="NetTcpBinding" />
+	  <MinWorkerThreads value="0" />
+	  <MinIoThreads value="0"/>
+	  <MaxConcurrentCalls value="64" />
+	  <MaxConcurrentSessions value="400" />
+      <MaxConnections value="500" />
+	  <ListenBacklog value="200" />
+      <SendTimeout value="45" />
+	  <ReceiveTimeout value="45" />
+	  <EnableDtc value="0" />
+      <Broker>
+        <Port value="60001" />
+        <RelativeAddress value="broker" />
+      </Broker>
+      <Common>
+        <Port value="60002" />
+        <RelativeAddress value="common" />
+      </Common>
+      <Document>
+        <!-- <BaseAddress value="net.tcp://serverA" /> (this is optional, if present it means this service is overridiing it) -->
+        <Port value="60003" />
+        <RelativeAddress value="document" />
+      </Document>
+      <Master>
+        <!-- <BaseAddress value="http://localhost" /> (this is optional, if present it means this service is overridiing it) -->
+        <Port value="60004" />
+        <RelativeAddress value="master" />
+        <!-- <Binding value="BasicHttpBinding" /> (this is optional, if present it means this service is overridiing it) -->
+      </Master>
+      <Org>
+        <Port value="60005" />
+        <RelativeAddress value="org" />
+      </Org>
+      <Pricing>
+        <Port value="60006" />
+        <RelativeAddress value="pricing" />
+      </Pricing>
+      <Application>
+        <Port value="60007" />
+        <RelativeAddress value="application" />
+      </Application>
+      <Routing>
+        <Port value="59999" />
+        <RelativeAddress value="routing" />
+      </Routing>
+      <Decision>
+        <Port value="60008" />
+        <RelativeAddress value="decision" />
+      </Decision>
+      <Calculation>
+        <Port value="60009" />
+        <RelativeAddress value="calculation" />
+      </Calculation>
+      <Credit>
+        <Port value="60010" />
+        <RelativeAddress value="credit" />
+      </Credit>
+	  <PreDecision>
+        <Port value="60011" />
+        <RelativeAddress value="predecision" />
+      </PreDecision>
+	  <Closing>
+        <Port value="60012" />
+        <RelativeAddress value="closing" />
+      </Closing>
+	  <Disclosure>
+        <Port value="60013" />
+        <RelativeAddress value="disclosure" />
+      </Disclosure>  	  
+	  <LoanOption>
+	      <Port value="60014" />
+        <RelativeAddress value="loanoption" />
+	  </LoanOption>
+    </Services>
+  </Abacus>
+</ConfigurationSettings>
